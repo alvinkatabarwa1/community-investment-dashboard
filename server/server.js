@@ -25,7 +25,7 @@ app.use("/api/activity", activityRoutes);
 const clientDistPath = path.join(__dirname, "../client/dist");
 app.use(express.static(clientDistPath));
 
-app.get("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
